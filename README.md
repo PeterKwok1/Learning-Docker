@@ -16,14 +16,15 @@
     - ```node --watch index.js``` + ```nodemon index.js``` don't work with docker volumes due to the way file changes are handled
 
 
-
 docker build -t test . 
 docker run -v "$(pwd -W)":/app -v /app/node_modules -p 3000:3000 -d --name tc test
 
-docker run --mount source=$(pwd -W),target=/app' -p 3000:3000 -d --name tc test
-test absolute path string
--v can produce binds mounts, not volumes
+docker run --mount type=volume,source="$(pwd -W)",destination=//app -p 3000:3000 -d --name tc test
+docker run --mount type=bind,source="$(pwd -W)",destination=//app --mount type=volume,destination=//app//node_modules -p 3000:3000 -d --name tc test
+docker run -v "$(pwd -W)":/app -v /app/node_modules -p 3000:3000 -d --name tc test
+
 https://docs.docker.com/storage/volumes/
-type=volume
-csv
+-v can produce bind mounts or volumes. --mount allows you to choose 
+bash / to escape / for paths
+
 
