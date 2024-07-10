@@ -20,3 +20,4 @@
 - ```docker compose down```
 - ```nodemon --legacy-watch index.js```
     - ```node --watch index.js``` + ```nodemon index.js``` don't work with docker bind mounts or volumes due to the way file changes are mirrored
+- user ```mongosh```. ```mongo``` is deprecated.
