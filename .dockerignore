@@ -1,4 +1,6 @@
 Dockerfile
+# * = "wildcard that matches zero or more characters"
+docker-compose* 
 .dockerignore
 .git
 .gitignore

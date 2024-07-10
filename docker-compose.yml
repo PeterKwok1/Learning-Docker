@@ -1,11 +1,8 @@
 version: "3"
 services:
-  node_app:
-    build: .
+  node-app:
+    build: . # must be here even though it's also in dev and prod files
     ports:
       - "3000:3000"
-    volumes:
-      - ./:/app:ro
-      - /app/node_modules
     env_file:
       - .env

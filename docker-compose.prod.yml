@@ -1,0 +1,10 @@
+version: "3"
+services:
+  node-app:
+    build:
+      context: .
+      args:
+        NODE_ENV: production
+    environment:
+      - NODE_ENV=production # another way to pass environment variables
+    command: npm start # overwrites command from dockerfile
