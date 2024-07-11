@@ -4,7 +4,7 @@
 - 
 
 ## Resources
-- https://www.youtube.com/watch?v=9zUHg7xjIqQ - https://youtu.be/9zUHg7xjIqQ?t=6152
+- https://www.youtube.com/watch?v=9zUHg7xjIqQ - https://youtu.be/9zUHg7xjIqQ?t=7911
 
 ## Notes
 - ```docker run -v "$(pwd -W)":/app:ro -v //app/node_modules --env-file .env -p 3000:3000 -d --name node_app node_app_image``` 
@@ -17,7 +17,7 @@
     - ```-f``` = file 
     - ```-d``` = detached mode 
     - ```--build``` = force build in case dockerfile has been updated. 
-- ```docker compose down```
+- ```docker compose -f docker-compose.yml -f docker-compose.[dev || prod].yml down```
 - ```nodemon --legacy-watch index.js```
     - ```node --watch index.js``` + ```nodemon index.js``` don't work with docker bind mounts or volumes due to the way file changes are mirrored
 - user ```mongosh```. ```mongo``` is deprecated.
