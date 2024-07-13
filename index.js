@@ -2,6 +2,7 @@ import express from "express"
 import mongoose from 'mongoose'
 import config from "./config/config.js"
 const { MONGO_USER, MONGO_PASSWORD, MONGO_IP, MONGO_PORT } = config
+import { router as postRouter } from "./routes/postRoutes.js"
 
 const app = express()
 
@@ -29,6 +30,7 @@ app.get('/', (req, res) => {
     res.send("<h2>Hi There!!!</h2>")
 })
 
+app.use("/posts", postRouter)
 
 const port = process.env.PORT || 3000
 
