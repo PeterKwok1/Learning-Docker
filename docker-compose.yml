@@ -1,11 +1,13 @@
 version: "3"
 services:
   node-app:
-    build: . # must be here even though it's also in dev and prod files
+    build: .
     ports:
       - "3000:3000"
     env_file:
       - .env
+    depends_on:
+      - mongo
   mongo:
     image: mongo
     environment:
