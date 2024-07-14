@@ -3,6 +3,8 @@ import mongoose from 'mongoose'
 import config from "./config/config.js"
 const { MONGO_USER, MONGO_PASSWORD, MONGO_IP, MONGO_PORT } = config
 import { router as postRouter } from "./routes/postRoutes.js"
+import { router as userRouter } from "./routes/userRoutes.js"
+
 
 const app = express()
 
@@ -26,11 +28,14 @@ const connectWithRetry = () => {
 
 connectWithRetry()
 
+app.use(express.json())
+
 app.get('/', (req, res) => {
     res.send("<h2>Hi There!!!</h2>")
 })
 
-app.use("/posts", postRouter)
+app.use("/api/v1/posts", postRouter)
+app.use("/api/v1/users", userRouter)
 
 const port = process.env.PORT || 3000
 
