@@ -15,6 +15,8 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=sample_pass
     volumes:
       - mongo-db:/data/db
+  redis:
+    image: redis
 
 volumes:
   mongo-db: # named volumes must also be declared

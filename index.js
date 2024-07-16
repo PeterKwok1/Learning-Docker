@@ -4,6 +4,26 @@ import config from "./config/config.js"
 const { MONGO_USER, MONGO_PASSWORD, MONGO_IP, MONGO_PORT } = config
 import { router as postRouter } from "./routes/postRoutes.js"
 import { router as userRouter } from "./routes/userRoutes.js"
+import RedisStore from "connect-redis"
+import session from "express-session"
+import { createClient } from "redis"
+
+let redisClient = createClient()
+redisClient.connect().catch(console.error)
+
+let redisStore = new RedisStore({
+    client: redisClient,
+    prefix: "myapp:"
+})
+
+app.use(
+    session({
+        store: redisStore,
+        resave: false,
+        saveUninitialized: false,
+        secret: "keyboard cat",
+    })
+)
 
 
 const app = express()
