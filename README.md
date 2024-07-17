@@ -4,7 +4,7 @@
 - 
 
 ## Resources
-- https://www.youtube.com/watch?v=9zUHg7xjIqQ - https://youtu.be/9zUHg7xjIqQ?t=11695
+- https://www.youtube.com/watch?v=9zUHg7xjIqQ - https://youtu.be/9zUHg7xjIqQ?t=11286
 
 ## Notes
 - ```docker run -v "$(pwd -W)":/app:ro -v //app/node_modules --env-file .env -p 3000:3000 -d --name node_app node_app_image``` 

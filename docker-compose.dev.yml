@@ -12,6 +12,7 @@ services:
       - NODE_ENV=development # another way to pass environment variables
       - MONGO_USER=sample_user
       - MONGO_PASSWORD=sample_pass
+      - SESSION_SECRET=secret
     command: npm run dev # overwrites command from dockerfile
   mongo:
     environment:
